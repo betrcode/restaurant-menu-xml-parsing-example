@@ -20,3 +20,16 @@ dependencies {
 run {
     mainClassName = "se.bettercode.restaurant.Main"
 }
+
+jar {
+    archiveName = "restaurant.jar" //skip the SNAPSHOT stuff
+    manifest {
+        attributes(
+                "Main-Class": "se.bettercode.restaurant.Main",
+                "Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+        )
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
