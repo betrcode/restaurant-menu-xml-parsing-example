@@ -6,6 +6,7 @@ import se.bettercode.restaurant.model.BreakfastMenu;
 import se.bettercode.restaurant.model.Food;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 @AllArgsConstructor
 public class MenuPrinter {
@@ -14,8 +15,8 @@ public class MenuPrinter {
   private String file;
 
   public void print() throws IOException {
-    final String xml = new XmlFileLoader().loadFileAsString(getFile());
-    final BreakfastMenu breakfastMenu = new BreakfastMenuMaker().fromXmlString(xml);
+    final InputStream xml = XmlFileLoader.loadFile(getFile());
+    final BreakfastMenu breakfastMenu = new BreakfastMenuMaker().fromXml(xml);
     printMenu(breakfastMenu);
   }
 
