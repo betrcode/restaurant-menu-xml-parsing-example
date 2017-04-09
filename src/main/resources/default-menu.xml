@@ -1,0 +1,9 @@
+<?xml version='1.0'?>
+<breakfast-menu>
+    <food>
+        <name>Nothing good</name>
+        <price>$1.95</price>
+        <description>Plate full of nothing</description>
+        <calories>00</calories>
+    </food>
+</breakfast-menu>
