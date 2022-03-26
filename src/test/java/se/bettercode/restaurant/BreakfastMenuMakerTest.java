@@ -1,6 +1,6 @@
 package se.bettercode.restaurant;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import se.bettercode.restaurant.model.BreakfastMenu;
 import se.bettercode.restaurant.model.Food;
 
@@ -9,7 +9,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class BreakfastMenuMakerTest {
 
@@ -25,15 +26,17 @@ public class BreakfastMenuMakerTest {
     }
 
     private InputStream generateInputStream() {
-        String xmlAsString = "<?xml version='1.0'?>\n" +
-                "<breakfast-menu>\n" +
-                "    <food>\n" +
-                "        <name>Nothing good</name>\n" +
-                "        <price>$1.95</price>\n" +
-                "        <description>Plate full of nothing</description>\n" +
-                "        <calories>00</calories>\n" +
-                "    </food>\n" +
-                "</breakfast-menu>";
+        String xmlAsString = """
+                <?xml version='1.0'?>
+                <breakfast-menu>
+                    <food>
+                        <name>Nothing good</name>
+                        <price>$1.95</price>
+                        <description>Plate full of nothing</description>
+                        <calories>00</calories>
+                    </food>
+                </breakfast-menu>
+                """;
         return new ByteArrayInputStream(xmlAsString.getBytes());
     }
 
